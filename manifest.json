@@ -1,0 +1,42 @@
+{
+
+    "manifest_version": 2,
+    "name": "Replace It",
+    "version": "1.0",
+
+    "description": "Replace string to given string aftre n seconds",
+
+    "icons":
+    {
+        "48": "icons/border-48.png",
+        "96": "icons/border-96.png"
+    },
+    "browser_action":
+    {
+        "default_icon": "icons/border-48.png",
+        "default_title": "Rename It",
+        "default_popup": "popup/replaceIt.html"
+    },
+    "background":
+    {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_scripts": [
+    {
+        "js": [
+            "scripts/replace.js"
+        ],
+        "run_at": "document_end",
+        "match_about_blank": false,
+        "all_frames": false,
+        "matches": [
+            "http://*/*",
+            "https://*/*"
+        ]
+    }],
+    "permissions": [
+        "storage"
+    ]
+}
